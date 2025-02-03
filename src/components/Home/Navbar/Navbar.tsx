@@ -1,29 +1,107 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Button, Drawer, Typography } from 'antd';
+import { Layout, Menu, Button, Drawer } from 'antd';
 import { Menu as MenuIcon, ShoppingCartIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { useAppSelector } from '../../../store/hooks';
 import { selectCartState } from '../../../store/features/cart/cartSlice';
+import logo from '../../../assets/logo.webp';
 
 const { Header } = Layout;
-const { Title } = Typography;
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const { totalQuantity } = useAppSelector(selectCartState);
 
   const menuItems = [
-    { key: 'home', label: <NavLink to="/">Home</NavLink> },
-    { key: 'about', label: <NavLink to="/about">About</NavLink> },
-    { key: 'services', label: <NavLink to="/">Services</NavLink> },
-    { key: 'contact', label: <NavLink to="/">Contact</NavLink> },
-    { key: 'signup', label: <NavLink to="/signup">Signup</NavLink> },
-    { key: 'login', label: <NavLink to="/login">Login</NavLink> },
+    {
+      key: 'home',
+      label: (
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#E8F4FF' : '#fff',
+            color: isActive ? '#1677ff' : '#313131',
+            padding: '5px 10px',
+            borderRadius: '5px',
+          })}
+        >
+          Home
+        </NavLink>
+      ),
+    },
+    {
+      key: 'about',
+      label: (
+        <NavLink
+          to="/about"
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#E8F4FF' : '#fff',
+            color: isActive ? '#1677ff' : '#313131',
+            padding: '5px 10px',
+            borderRadius: '5px',
+          })}
+        >
+          About
+        </NavLink>
+      ),
+    },
+    {
+      key: 'products',
+      label: (
+        <NavLink
+          to="/products"
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#E8F4FF' : '#fff',
+            color: isActive ? '#1677ff' : '#313131',
+            padding: '5px 10px',
+            borderRadius: '5px',
+          })}
+        >
+          Products
+        </NavLink>
+      ),
+    },
+    {
+      key: 'contact',
+      label: (
+        <NavLink
+          to="/contact"
+          style={({ isActive }) => ({
+            backgroundColor: isActive ? '#E8F4FF' : '#fff',
+            color: isActive ? '#1677ff' : '#313131',
+            padding: '5px 10px',
+            borderRadius: '5px',
+          })}
+        >
+          Contact
+        </NavLink>
+      ),
+    },
+    {
+      key: 'signup',
+      label: (
+        <NavLink to="/signup" style={{ padding: '5px 10px' }}>
+          Signup
+        </NavLink>
+      ),
+    },
+    {
+      key: 'login',
+      label: (
+        <NavLink to="/login" style={{ padding: '5px 10px' }}>
+          Login
+        </NavLink>
+      ),
+    },
     {
       key: 'cart',
       label: (
-        <NavLink to="/cart">
-          {' '}
+        <NavLink
+          to="/cart"
+          style={({ isActive }) => ({
+            color: isActive ? '#1677ff' : '#313131',
+          })}
+        >
           <p style={{ position: 'relative' }}>
             <ShoppingCartIcon />
             <span
@@ -59,7 +137,7 @@ const Navbar: React.FC = () => {
         top: 0,
         zIndex: 1,
         width: '100%',
-        padding: 0,
+        padding: '0',
         background: '#fff',
       }}
     >
@@ -74,9 +152,9 @@ const Navbar: React.FC = () => {
           height: '100%',
         }}
       >
-        <Title level={3} style={{ margin: 0 }}>
-          Logo
-        </Title>
+        <div style={{ display: 'flex', alignItems: 'center', width: '8rem', height: '3.5rem' }}>
+          <img src={logo} style={{ width: '100%', height: '100%', borderRadius: '.3rem' }} />
+        </div>
 
         {/* Desktop Menu */}
         <div className="desktop-menu">

@@ -13,6 +13,7 @@ import ProtectedRoute from '../components/layout/ProtectedRoute';
 import AllProducts from '../components/Home/Products/AllProducts';
 import ProductDetails from '../components/Home/Products/ProductDetails';
 import VerifyOrder from '../pages/user/VerifyOrder';
+import Contact from '../components/Home/Contact/Contact';
 // import ProductDetails from '../pages/Homepage/Products/ProductDetails';
 // import Signup from '../pages/Signup';
 // import Login from '../pages/Login';
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About />,
+  },
+  {
+    path: '/contact',
+    element: <Contact />,
   },
   // {
   //   path: '/products/:productId',

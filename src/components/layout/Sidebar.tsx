@@ -6,10 +6,12 @@ import { selectCurrentToken, TUser } from '../../store/features/auth/authSlice';
 import { userRole } from './layout.constant';
 import { verifyToken } from '../../utils/verifyToken';
 import { userPaths } from '../../routes/user.routes';
+import { useNavigate } from 'react-router-dom';
 
 const { Sider } = Layout;
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const token = useAppSelector(selectCurrentToken);
   let user;
   if (token) user = verifyToken(token);
@@ -30,6 +32,7 @@ const Sidebar = () => {
   return (
     <Sider breakpoint="lg" collapsedWidth="0" width={225}>
       <div
+        onClick={() => navigate('/')}
         style={{
           color: 'white',
           height: '4rem',
@@ -37,6 +40,7 @@ const Sidebar = () => {
           justifyContent: 'center',
           alignItems: 'center',
           marginBottom: '1rem',
+          cursor: 'pointer',
         }}
       >
         <h1>Car Shop</h1>

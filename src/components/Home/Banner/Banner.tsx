@@ -50,6 +50,7 @@ const Banner: React.FC = () => {
           </Paragraph>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Button
+              href="#products"
               type="primary"
               size="large"
               style={{
@@ -59,12 +60,14 @@ const Banner: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 background: '#1677ff',
+                textDecoration: 'none',
               }}
               icon={<Car style={{ marginRight: 8 }} />}
             >
               Explore Our Fleet
             </Button>
             <Button
+              href="#products"
               size="large"
               style={{
                 height: '48px',
@@ -72,7 +75,7 @@ const Banner: React.FC = () => {
                 fontSize: '1rem',
                 display: 'flex',
                 alignItems: 'center',
-                // background: '#00285fd4',
+                textDecoration: 'none',
                 background: '#fff',
                 borderColor: '#fff',
                 color: '#333',

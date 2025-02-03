@@ -6,9 +6,6 @@ const productManagementApi = baseApi.injectEndpoints({
     getAllProducts: builder.query({
       query: args => {
         const params = new URLSearchParams();
-        for (const [key, value] of params.entries()) {
-          console.log(`${key}: ${value}`);
-        }
 
         if (args) {
           args.forEach((item: TQueryParam) => params.append(item.name, item.value as string));

@@ -46,7 +46,12 @@ const ShoppingCart = () => {
   };
 
   const handleCheckout = async () => {
-    const products = cartItems.map(({ product, quantity }) => ({ product, quantity }));
+    const products = cartItems.map(({ product, quantity }) => ({
+      key: product,
+      product,
+      quantity,
+    }));
+
     (await placeOrder({ products, totalPrice })) as TResponse<any>;
   };
 
@@ -142,7 +147,12 @@ const ShoppingCart = () => {
           <Col xs={24} sm={24} md={20} lg={16}>
             <Title level={2}>Shopping Cart</Title>
             <Card>
-              <Table columns={columns} dataSource={cartItems} pagination={false} rowKey="id" />
+              <Table
+                columns={columns}
+                dataSource={cartItems}
+                pagination={false}
+                showSorterTooltip={{ target: 'sorter-icon' }}
+              />
 
               <Divider />
 

@@ -11,9 +11,7 @@ import CustomSelect from '../../../components/form/CustomSelect';
 import CustomTextArea from '../../../components/form/CustomTextArea';
 
 const AddProduct = () => {
-  const [addProduct, { data: productData, isLoading, isSuccess }] = useAddProductMutation();
-
-  console.log(productData);
+  const [addProduct, { isLoading, isSuccess }] = useAddProductMutation();
 
   const productCategoryOptions = ['Sedan', 'SUV', 'Truck', 'Coupe', 'Convertible'].map(item => ({
     label: item,
@@ -34,7 +32,6 @@ const AddProduct = () => {
       year: Number(data.year),
       inStock: Boolean(data.inStock),
     };
-    console.log(productData);
 
     try {
       const res = await addProduct(productData).unwrap();

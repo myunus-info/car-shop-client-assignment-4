@@ -46,7 +46,6 @@ const UpdateProductModal = ({ product }: UpdateProductModalProps) => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async updatedProduct => {
-    console.log(updatedProduct);
     const toastId = toast.loading('Updating product...');
     const productData = {
       id: product?._id,

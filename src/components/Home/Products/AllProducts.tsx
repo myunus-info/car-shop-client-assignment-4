@@ -8,15 +8,18 @@ import {
 } from '@ant-design/icons';
 import { useGetAllProductsQuery } from '../../../store/features/admin/manageProducts.api';
 import { useState } from 'react';
-import { TQueryParam } from '../../../types';
+import { IProduct, TQueryParam } from '../../../types';
 import Navbar from '../Navbar/Navbar';
 import AppFooter from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../Shared/Spinner';
+import { addToCart } from '../../../store/features/cart/cartSlice';
+import { useAppDispatch } from '../../../store/hooks';
 
 const { Title } = Typography;
 
 const AllProducts = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [params, setParams] = useState<TQueryParam[]>([]);
   const [page, setPage] = useState(1);
@@ -46,6 +49,19 @@ const AllProducts = () => {
   const getParamValue = (name: string): string | undefined => {
     const param = params.find(param => param.name === name);
     return param ? String(param.value) : undefined;
+  };
+
+  const handleAddToCart = (product: IProduct) => {
+    dispatch(
+      addToCart({
+        product: product?._id,
+        quantity: 1,
+        price: product?.price,
+        name: product?.model,
+        imageUrl: product?.imageUrl,
+        stock: product?.quantity,
+      })
+    );
   };
 
   return (
@@ -136,9 +152,10 @@ const AllProducts = () => {
                     <Button
                       type="primary"
                       icon={<ShoppingCartOutlined />}
-                      // onClick={() => handleAddToCart(product._id)}
+                      onClick={() => handleAddToCart(product)}
+                      disabled={!product?.inStock}
                     >
-                      Add to Cart
+                      {product?.inStock ? 'Add to Cart' : 'Out of Stock'}
                     </Button>,
                   ]}
                 >

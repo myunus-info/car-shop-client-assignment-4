@@ -22,7 +22,6 @@ const DeleteProductModal = ({ product }: DeleteProductModalProps) => {
 
     try {
       const res = await deleteProduct(id).unwrap();
-      console.log(res);
       if (res?.success) {
         toast.success(res?.message, { id: toastId, duration: 2000 });
         handleCloseModal();

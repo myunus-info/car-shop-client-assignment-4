@@ -8,6 +8,10 @@
   font-family: 'Merriweather', serif !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Ant Design CSS Reset and Custom Styles */
 .ant-layout {
   background: #fff !important;
@@ -42,14 +46,6 @@
   line-height: 32px !important;
   height: 32px !important;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.ant-menu-horizontal > .ant-menu-item:hover,
-.ant-menu-horizontal > .ant-menu-submenu:hover,
-.ant-menu-horizontal > .ant-menu-item-active,
-.ant-menu-horizontal > .ant-menu-item-selected {
-  color: #1677ff !important;
-  background: #e6f4ff !important;
 }
 
 /* Remove default Ant Design menu item indicators */

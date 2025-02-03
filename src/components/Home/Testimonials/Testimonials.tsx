@@ -48,7 +48,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '32px' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '32px', marginBottom: '1rem' }}>
       <div style={{ textAlign: 'center', marginBottom: '48px' }}>
         <Title level={2}>What Our Clients Say</Title>
         <Text type="secondary" style={{ fontSize: '16px' }}>

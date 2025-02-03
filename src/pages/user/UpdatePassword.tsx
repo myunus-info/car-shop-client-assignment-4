@@ -18,7 +18,6 @@ const UpdatePassword: React.FC = () => {
   const [updatePassword, { data: passwordData, isLoading, isSuccess, isError, error }] =
     useUpdatePasswordMutation();
   const onSubmit: SubmitHandler<FieldValues> = async data => {
-    console.log(data);
     await updatePassword(data);
   };
 
