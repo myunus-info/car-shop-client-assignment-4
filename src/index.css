@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif !important;
+}
+
+/* Ant Design CSS Reset and Custom Styles */
+.ant-layout {
+  background: #fff !important;
+}
+
+.ant-layout-header {
+  height: 64px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Mobile menu styles */
+.mobile-menu-button {
+  display: none;
+}
+
+.desktop-menu {
+  display: block;
+  flex: 1;
+}
+
+/* Menu item button styles */
+.ant-menu-horizontal {
+  line-height: 64px;
+  border-bottom: none !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item,
+.ant-menu-horizontal > .ant-menu-submenu {
+  margin: 0 4px !important;
+  padding: 0 12px !important;
+  border-radius: 4px;
+  line-height: 32px !important;
+  height: 32px !important;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #1677ff !important;
+  background: #e6f4ff !important;
+}
+
+/* Remove default Ant Design menu item indicators */
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after,
+.ant-menu-horizontal > .ant-menu-item::before,
+.ant-menu-horizontal > .ant-menu-submenu::before {
+  display: none !important;
+}
+
+/* Center menu items vertically in header */
+.ant-menu-horizontal {
+  display: flex;
+  align-items: center;
+}
+
+/* Drawer menu styles */
+.ant-drawer .ant-menu-item {
+  margin: 4px 12px !important;
+  padding: 0 12px !important;
+  border-radius: 4px;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+
+.ant-drawer .ant-menu-item:hover,
+.ant-drawer .ant-menu-item-active,
+.ant-drawer .ant-menu-item-selected {
+  color: #1677ff !important;
+  background: #e6f4ff !important;
+}
+
+/* Banner button hover effects */
+.ant-btn:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .ant-layout-header {
+    padding: 0 16px !important;
+  }
+
+  /* Responsive banner styles */
+  h1.ant-typography {
+    font-size: 2.5rem !important;
+  }
+
+  .ant-typography + .ant-typography {
+    font-size: 1rem !important;
+  }
+}
